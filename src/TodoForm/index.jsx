@@ -1,28 +1,22 @@
-import React, { useContext, useState } from 'react';
-import { TodoContext } from '../TodoContext';
-import './TodoForm.css';
+import React, { useState } from "react";
+import "./TodoForm.css";
 
-const TodoForm = () => {
-  const [newTodoValue, setNewTodoValue] = useState('');
+const TodoForm = ({ addTodo, setOpenModal }) => {
+  const [newTodoValue, setNewTodoValue] = useState("");
 
-  const {
-    addTodo,
-    setOpenModal
-  } = useContext(TodoContext);
-
-  const onChange = event => {
+  const onChange = (event) => {
     setNewTodoValue(event.target.value);
-  }
+  };
 
   const onCancel = () => {
     setOpenModal(false);
-  }
+  };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     addTodo(newTodoValue);
     setOpenModal(false);
-  }
+  };
 
   return (
     <form onSubmit={onSubmit}>
@@ -46,6 +40,6 @@ const TodoForm = () => {
       </div>
     </form>
   );
-}
+};
 
 export { TodoForm };
