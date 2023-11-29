@@ -6,16 +6,15 @@ const TodoSearch = ({ searchValue, setSearchValue, loading }) => {
     setSearchValue(event.target.value);
   }
 
-  return [
+  return (
     <input
       className='TodoSearch'
       placeholder="Onion"
       value={searchValue}
       onChange={onSearchValueChange}
       disabled={loading}
-     />,
-     <p>{searchValue}</p>
-  ];
+     />  
+  );
 }
 
 export { TodoSearch };
