@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStorageListener } from './useStorageListener';
+import { useStorageListener } from '../../hooks/useStorageListener';
 
 function ChangeAlert({ sincronize }) {
   const { show, toggleShow } = useStorageListener(sincronize);
