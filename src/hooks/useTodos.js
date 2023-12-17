@@ -63,7 +63,7 @@ const useTodos = () => {
     completedTodos,
     searchValue,
     searchedTodos,
-    openModal
+    openModal,
   };
 
   const stateUpdaters = {
@@ -72,10 +72,10 @@ const useTodos = () => {
     completeTodo,
     deleteTodo,
     setOpenModal,
-    sincronizeTodos
+    sincronizeTodos,
   };
 
   return { state, stateUpdaters };
-}
+};
 
 export { useTodos };

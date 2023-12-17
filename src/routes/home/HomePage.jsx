@@ -1,19 +1,19 @@
 import React from "react";
-import { useTodos } from "./useTodos";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
-import { TodoForm } from "../TodoForm";
-import { TodoHeader } from "../TodoHeader";
-import { TodosError } from "../TodosError";
-import { TodosLoading } from "../TodosLoading";
-import { EmptyTodos } from "../EmptyTodos";
-import { ChangeAlert } from "../ChangeAlert";
+import { useTodos } from "../hooks/useTodos";
+import { TodoCounter } from "../components/TodoCounter";
+import { TodoSearch } from "../components/TodoSearch";
+import { TodoList } from "../components/TodoList";
+import { TodoItem } from "../components/TodoItem";
+import { CreateTodoButton } from "../components/CreateTodoButton";
+import { Modal } from "../components/Modal";
+import { TodoForm } from "../components/TodoForm";
+import { TodoHeader } from "../components/TodoHeader";
+import { TodosError } from "../components/TodosError";
+import { TodosLoading } from "../components/TodosLoading";
+import { EmptyTodos } from "../components/EmptyTodos";
+import { ChangeAlert } from "../components/ChangeAlert";
 
-function App() {
+function HomePage() {
   const { state, stateUpdaters } = useTodos();
 
   const {
@@ -38,14 +38,8 @@ function App() {
   return (
     <React.Fragment>
       <TodoHeader loading={loading}>
-        <TodoCounter 
-          totalTodos={totalTodos} 
-          completedTodos={completedTodos} 
-        />
-        <TodoSearch 
-          searchValue={searchValue} 
-          setSearchValue={setSearchValue}
-        /> 
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
       <TodoList
         error={error}
@@ -60,7 +54,7 @@ function App() {
           <p>There is no results for {searchText}</p>
         )}
       >
-        {todo => (
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -81,4 +75,4 @@ function App() {
   );
 }
 
-export default App;
+export { HomePage };
