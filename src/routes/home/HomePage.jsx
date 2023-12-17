@@ -54,7 +54,7 @@ function HomePage() {
           <p>There is no results for {searchText}</p>
         )}
       >
-        {(todo) => (
+        {todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
