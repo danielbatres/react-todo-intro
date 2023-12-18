@@ -13,6 +13,9 @@ const TodoItem = (props) => {
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
+      <EditIcon
+        onEdit={props.onEdit}
+      />
       <span
         className="Icon Icon-delete"
         onClick={props.onDelete}
