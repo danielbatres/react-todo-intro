@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { useTodos } from "../../hooks/useTodos";
 import { TodoCounter } from "../../components/TodoCounter";
 import { TodoSearch } from "../../components/TodoSearch";
@@ -14,13 +15,14 @@ import { EmptyTodos } from "../../components/EmptyTodos";
 import { ChangeAlert } from "../../components/ChangeAlert";
 
 function HomePage() {
+  const navigate = useNavigate();
   const { state, stateUpdaters } = useTodos();
 
   const {
     error,
     loading,
     searchedTodos,
-    openModal,
+    // openModal,
     totalTodos,
     completedTodos,
     searchValue,
@@ -28,9 +30,9 @@ function HomePage() {
 
   const {
     setSearchValue,
-    addTodo,
+    // addTodo,
     sincronizeTodos,
-    setOpenModal,
+    // setOpenModal,
     completeTodo,
     deleteTodo,
   } = stateUpdaters;
@@ -65,12 +67,15 @@ function HomePage() {
           />
         )}
       </TodoList>
-      {openModal && (
+      {/*openModal && (
         <Modal>
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
-      )}
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      )*/}
+      <CreateTodoButton 
+        onClick={() => navigate("/new")}
+        // setOpenModal={setOpenModal} 
+      />
       <ChangeAlert sincronize={sincronizeTodos} />
     </React.Fragment>
   );

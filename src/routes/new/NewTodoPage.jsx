@@ -1,7 +1,12 @@
 import React from "react";
+import { TodoForm } from "../../components/TodoForm";
 
 function NewTodoPage() {
-  return <p>New</p>;
+  return (
+    <>
+      <TodoForm /> 
+    </>
+  );
 }
 
 export { NewTodoPage };
