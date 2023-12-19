@@ -3,9 +3,11 @@ import { TodoForm } from "../../components/TodoForm";
 
 function NewTodoPage() {
   return (
-    <>
-      <TodoForm /> 
-    </>
+    <TodoForm 
+      label="Enter a new TODO"
+      submitText="Add"
+      submitEvent={() => console.log("Add todo")}
+    /> 
   );
 }
 

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./TodoForm.css";
 
-const TodoForm = ({ addTodo, setOpenModal }) => {
+const TodoForm = (props) => {
+  const navigate = useNavigate();
   const [newTodoValue, setNewTodoValue] = useState("");
 
   const onChange = (event) => {
@@ -9,18 +11,18 @@ const TodoForm = ({ addTodo, setOpenModal }) => {
   };
 
   const onCancel = () => {
-    setOpenModal(false);
+    navigate("/");
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addTodo(newTodoValue);
-    setOpenModal(false);
+    navigate("/");
+    props.submitEvent(newTodoValue);
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <label>Enter a new TODO</label>
+      <label>{props.label}</label>
       <textarea
         value={newTodoValue}
         onChange={onChange}
@@ -35,7 +37,7 @@ const TodoForm = ({ addTodo, setOpenModal }) => {
           Cancel
         </button>
         <button type="submit" className="TodoForm-button TodoForm-button--add">
-          Add
+          {props.submitText}
         </button>
       </div>
     </form>
