@@ -1,9 +1,10 @@
 import React from 'react'
 import { TodoForm } from '../../components/TodoForm';
 import { useTodos } from '../../hooks/useTodos';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 function EditTodoPage() {
+  const location = useLocation();
   const params = useParams();
   const id = Number(params.id);
   const { 
@@ -11,20 +12,24 @@ function EditTodoPage() {
     stateUpdaters: { editTodo }
   } = useTodos();
 
-  if (loading) {
+  let todoText;
+
+  if (location.state?.todo) {
+    todoText = location.state.todo.text;
+  } else if (loading) {
     return <p>Loading...</p>
   } else {
-    const todo = getTodo(id);
-
-    return (
-      <TodoForm
-        label="Edit TODO"
-        defaultTodoText={todo.text}
-        submitText="Edit"
-        submitEvent={(newText) => editTodo(id, newText)}
-      />
-    );
+    todoText = getTodo(id).text;
   }
+
+  return (
+    <TodoForm
+      label="Edit TODO"
+      defaultTodoText={todoText}
+      submitText="Edit"
+      submitEvent={(newText) => editTodo(id, newText)}
+    />
+  );
 }
 
 export { EditTodoPage };
