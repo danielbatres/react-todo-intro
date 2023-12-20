@@ -4,7 +4,7 @@ import "./TodoForm.css";
 
 const TodoForm = (props) => {
   const navigate = useNavigate();
-  const [newTodoValue, setNewTodoValue] = useState("");
+  const [newTodoValue, setNewTodoValue] = useState(props.defaultTodoText || "");
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);

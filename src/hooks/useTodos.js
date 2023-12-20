@@ -40,29 +40,31 @@ const useTodos = () => {
     saveTodos(newTodos);
   };
 
-  const completeTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
+  const getTodoIndex = (id) => {
+    return todos.findIndex(todo => todo.id === id);
+  }
 
+  const getTodo = (id) => {
+    return todos[getTodoIndex(id)];
+  }
+
+  const completeTodo = (id) => {
     const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
+    newTodos[getTodoIndex(id)].completed = true;
 
     saveTodos(newTodos);
   };
 
   const editTodo = (id, newText) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
-
     const newTodos = [...todos];
-    newTodos[todoIndex].text = newText;
+    newTodos[getTodoIndex(id)].text = newText;
 
     saveTodos(newTodos);
   };
 
   const deleteTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
-
     const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
+    newTodos.splice(getTodoIndex(id), 1);
 
     saveTodos(newTodos);
   };
@@ -74,6 +76,7 @@ const useTodos = () => {
     completedTodos,
     searchValue,
     searchedTodos,
+    getTodo,
   };
 
   const stateUpdaters = {
