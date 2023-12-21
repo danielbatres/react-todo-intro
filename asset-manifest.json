@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-todo-intro/static/css/main.cea21982.css",
+    "main.js": "/react-todo-intro/static/js/main.02965803.js",
+    "index.html": "/react-todo-intro/index.html",
+    "static/media/delete.svg": "/react-todo-intro/static/media/delete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
+    "static/media/edit.svg": "/react-todo-intro/static/media/edit.569363b1fad8252af1f4f6e04345ba2e.svg",
+    "static/media/check.svg": "/react-todo-intro/static/media/check.af03c9a6a0411e40578874e6f00e807b.svg",
+    "main.cea21982.css.map": "/react-todo-intro/static/css/main.cea21982.css.map",
+    "main.02965803.js.map": "/react-todo-intro/static/js/main.02965803.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cea21982.css",
+    "static/js/main.02965803.js"
+  ]
+}
